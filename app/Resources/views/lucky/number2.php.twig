@@ -1,0 +1,28 @@
+{% block body %}
+
+{%  for n in number %}
+    {%  if n < 33 %}
+<h1 style="color:red;">Your lucky number is {{ n }}</h1>
+        {%  elseif n < 66 %}
+            <h2 style="color:blue;">Your lucky number is {{ n }}</h2>
+            {%  else %}
+                <h3 style="color:green;">Your lucky number is {{ n }}</h3>
+            {% endif %}
+{% endfor %}
+{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        body { background-image: url({{ asset('public/img/bg_carte.svg') }}); background-repeat: no-repeat;}
+
+        @media (min-width: 768px) {
+            #wrapper { width: 80%; margin: 2em auto; }
+            #icon-book { display: inline-block; }
+            #status a, #next a { display: block; }
+
+            @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+            @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
+            .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+        }
+    </style>
+{% endblock %}
